@@ -35,14 +35,6 @@ def stats_market():
 #stats_market()
 
 
-a = 6
-print(a)
-if a is 6:
-    print(a)
-
-
-
-
 def stats_codeup():
     students = stats.poisson(66)
     breakroom = students.isf(.8)
