@@ -9,13 +9,17 @@ import pickle
 
 
 def stats_bank():
+    b = range(8)
     bank = stats.poisson(2)
+    bb = stats.poisson(2).pmf(b)
+    plt.bar(b, bb)
+    plt.show()
     print(bank.cdf(0))
     print(bank.sf(2))
     print(bank.sf(0))
     
 
-#stats_bank()s
+stats_bank()
 
 
 def stats_school():
@@ -33,6 +37,9 @@ def stats_market():
     print(market.cdf(97))
 
 #stats_market()
+
+
+
 
 
 def stats_codeup():
@@ -54,7 +61,6 @@ def stats_panaderia():
     print(m.cdf(17))
     
 #stats_panaderia()
-
 
 
 
