@@ -8,18 +8,22 @@ import pickle
 
 
 
+
 def stats_bank():
     b = range(8)
     bank = stats.poisson(2)
     bb = stats.poisson(2).pmf(b)
+    trial = bank.rvs(10_000)
+    print(trial)
+    print('<<<<<>>>>>')
     plt.bar(b, bb)
-    plt.show()
+    #plt.show()
     print(bank.cdf(0))
     print(bank.sf(2))
     print(bank.sf(0))
     
 
-stats_bank()
+#stats_bank()
 
 
 def stats_school():
@@ -29,30 +33,32 @@ def stats_school():
     print(school.ppf(.3))
     print('A student with a GPA of 2.8 would qualify for the scholarship')
 
-stats_school()
+#stats_school()
 
 def stats_market():
-    print(stats.poisson(4326, 97))
-    market = stats.norm(4326, 86.52)
-    print(market.cdf(97))
+    market = stats.binom(4326, .02)
+    print(market.sf(96))
+    simulated_market = ((np.random.random((10_000, 4326)) <= .02).sum(axis = 1) >= 97).mean()
+    print(simulated_market)
 
 #stats_market()
 
+def stats_homework():
+    homework = stats.binom(60, 1 / 101)
+    print(homework.pmf(1))
 
-
-
+#stats_homework()
 
 def stats_codeup():
     students = stats.poisson(66)
     breakroom = students.isf(.8)
-    print(breakroom)
     students = stats.poisson(breakroom)
     a = stats.binom(breakroom, .03)
     print(a.sf(0))
     print(a.pmf(2))
     print(a.pmf(5))
     
-#stats_codeup()
+stats_codeup()
 
 
 
@@ -61,6 +67,8 @@ def stats_panaderia():
     print(m.cdf(17))
     
 #stats_panaderia()
+
+
 
 
 
